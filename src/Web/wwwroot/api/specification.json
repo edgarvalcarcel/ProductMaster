@@ -129,10 +129,6 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "productId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "name": {
             "type": "string"
           },
@@ -145,20 +141,9 @@
             "format": "decimal"
           },
           "description": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "price": {
-            "type": "number",
-            "format": "decimal",
-            "nullable": true
-          },
-          "discount": {
-            "type": "number",
-            "format": "decimal",
-            "nullable": true
-          },
-          "finalPrice": {
             "type": "number",
             "format": "decimal"
           }

@@ -8,6 +8,8 @@ using ProductMaster.Infrastructure.Data;
 using ProductMaster.Infrastructure.Data.Interceptors;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using ProductMaster.Application.Interfaces.Shared;
+using ProductMaster.Infrastructure.Shared.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -29,21 +31,12 @@ public static class DependencyInjection
         services.AddScoped<IProductMasterDbContext>(provider => provider.GetRequiredService<ProductMasterDbContext>());
         services.AddScoped<ProductMasterDbContextInitialiser>();
 
-
+        services.AddTransient<IAPIExternalServices, APIExternalServices>();
+        services.Configure<ExternalServices>(configuration.GetSection("ExternalServices"));
         services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
         services.AddAuthorizationBuilder();
 
-
-        //services.AddAuthentication(options =>
-        //{
-        //    options.DefaultAuthenticateScheme = DefaultAuthenticationTypes.ApplicationCookie;
-        //})
-        //.AddCookie(DefaultAuthenticationTypes.ApplicationCookie, options =>
-        //{
-
-        //    options.LoginPath = "/Login";
-        //    options.LogoutPath = "/Logout";
-        //});
+ 
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
         options =>

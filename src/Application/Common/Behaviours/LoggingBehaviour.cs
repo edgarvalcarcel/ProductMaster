@@ -1,7 +1,4 @@
-﻿using ProductMaster.Application.Common.Interfaces;
-using MediatR.Pipeline;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
+﻿using Microsoft.Extensions.Logging;
 
 namespace ProductMaster.Application.Common.Behaviours;
 
