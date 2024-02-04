@@ -28,15 +28,17 @@ public class ProductRepository : IProductRepository
             t => t.ProductId == id, cancellationToken);
     }
 
-    public async Task UpdateProductAsync(Product product, CancellationToken cancellationToken)
+    public async Task<bool> UpdateProductAsync(Product product, CancellationToken cancellationToken)
     {
         _context.Product.Update(product);
         await _context.SaveChangesAsync(cancellationToken);
+        return true;
     }
 
-    public async Task DeleteProductAsync(Product product, CancellationToken cancellationToken)
+    public async Task<bool> DeleteProductAsync(Product product, CancellationToken cancellationToken)
     {
         _context.Product.Remove(product);
         await _context.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }

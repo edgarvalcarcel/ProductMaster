@@ -2,6 +2,7 @@
 using ProductMaster.Application.Products.Commands.CreateProducts;
 using ProductMaster.Application.Products.Commands.DeleteProducts;
 using ProductMaster.Application.Products.Commands.UpdateProducts;
+using ProductMaster.Domain.Entities;
 
 namespace ProductMaster.Web.Endpoints;
 
@@ -11,7 +12,6 @@ public class Products : EndpointGroupBase
     {
         app.MapGroup(this)
         .RequireAuthorization()
-        //.MapGet(GetTodoItemsWithPagination)
         .MapPost(CreateProduct)
         .MapPut(UpdateProduct, "{id}") 
         .MapDelete(DeleteProduct, "{id}");
@@ -24,13 +24,14 @@ public class Products : EndpointGroupBase
 
     public async Task<IResult> UpdateProduct(ISender sender, int id, UpdateProductCommand command)
     {
-        if (id != command.ProductId) return Results.BadRequest();
+        if (id <= 0) return Results.BadRequest();
+        command.ProductId = id;
         await sender.Send(command);
-        return Results.NoContent();
+        return Results.Ok();
     }
     public async Task<IResult> DeleteProduct(ISender sender, int id)
     {
         await sender.Send(new DeleteProductCommand(id));
-        return Results.NoContent();
+        return Results.Ok();
     }
 }
