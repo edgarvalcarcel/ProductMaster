@@ -26,6 +26,10 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
         entity.Name = request.Name;
         entity.Done = request.Done;
 
+        /// Validation for Prices
+        //entity.Discount = discount;
+        //entity.FinalPrice = entity.Price - ((discount / 100) * entity.Price);
+
         await _context.SaveChangesAsync(cancellationToken);
     }
 }

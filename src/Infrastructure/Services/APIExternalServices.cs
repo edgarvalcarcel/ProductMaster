@@ -1,7 +1,7 @@
-﻿using ProductMaster.Application.Interfaces.Shared;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging;
 using ProductMaster.Infrastructure.Data;
+using ProductMaster.Application.Common.Interfaces;
 
 namespace ProductMaster.Infrastructure.Shared.Services
 {

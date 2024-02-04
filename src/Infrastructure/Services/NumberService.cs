@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using EquitiesMutualFunds.Orders.Application.Interfaces.Shared;
+using ProductMaster.Application.Common.Interfaces;
 
 namespace EquitiesMutualFunds.Orders.Infrastructure.Shared.Services
 {

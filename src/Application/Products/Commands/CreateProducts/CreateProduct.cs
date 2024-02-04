@@ -1,17 +1,15 @@
 ﻿using ProductMaster.Application.Common.Interfaces;
-using ProductMaster.Application.Interfaces.Shared;
 using ProductMaster.Domain.Entities;
-using ProductMaster.Domain.Events;
 
 namespace ProductMaster.Application.Products.Commands.CreateProducts;
 public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
 {
-    private readonly IProductMasterDbContext _context;
     private readonly IAPIExternalServices _externalServices;
+    private readonly IProductRepository _repository;
 
-    public CreateProductCommandHandler(IProductMasterDbContext context, IAPIExternalServices externalServices)
+    public CreateProductCommandHandler(IProductRepository repository, IAPIExternalServices externalServices)
     {
-        _context = context;
+        _repository = repository;
         _externalServices = externalServices;
     }
 
@@ -24,17 +22,15 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
             Stock = request.Stock,
             Description = request.Description,
             Price = request.Price
-        }; 
-        _context.Product.Add(entity);
-        await _context.SaveChangesAsync(cancellationToken);
+        };
+        int productId  = await _repository.CreateProductAsync(entity, cancellationToken);
 
-        var discount = _externalServices.ConvertStringDecimal(_externalServices.GetDiscountExternal(entity.ProductId.ToString()));
+        var discount = _externalServices.ConvertStringDecimal(_externalServices.GetDiscountExternal(productId.ToString()));
+
         entity.Discount = discount;
-        entity.FinalPrice = entity.Price * (100- discount) /  entity.Price;
+        entity.FinalPrice = entity.Price - ((discount / 100) * entity.Price);
 
-        _context.Product.Update(entity);
-        entity.AddDomainEvent(new ProductCreatedEvent(entity));
-        await _context.SaveChangesAsync(cancellationToken);
+        await _repository.UpdateProductAsync(entity, cancellationToken);
 
         return entity.ProductId;
     }
