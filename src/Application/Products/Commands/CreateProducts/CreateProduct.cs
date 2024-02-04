@@ -30,7 +30,7 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 
         var discount = _externalServices.ConvertStringDecimal(_externalServices.GetDiscountExternal(entity.ProductId.ToString()));
         entity.Discount = discount;
-        entity.FinalPrice = entity.Price - ((discount / 100) * entity.Price);
+        entity.FinalPrice = entity.Price * (100- discount) /  entity.Price;
 
         _context.Product.Update(entity);
         entity.AddDomainEvent(new ProductCreatedEvent(entity));
