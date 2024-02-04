@@ -7,4 +7,5 @@ public interface IProductRepository
     Task<int> CreateProductAsync(Product product, CancellationToken cancellationToken);
     Task<Product?> FindProductByIdAsync(int id, CancellationToken cancellationToken);
     Task UpdateProductAsync(Product product, CancellationToken cancellationToken);
+    Task DeleteProductAsync(Product product, CancellationToken cancellationToken);
 }

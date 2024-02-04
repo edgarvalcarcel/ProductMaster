@@ -1,35 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProductMaster.Application.Common.Interfaces;
+﻿using ProductMaster.Application.Common.Interfaces;
+using ProductMaster.Domain.Entities;
 
 namespace ProductMaster.Application.Products.Commands.UpdateProducts;
- 
 public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
 {
-    private readonly IProductMasterDbContext _context;
+    private readonly IAPIExternalServices _externalServices;
+    private readonly IProductRepository _repository;
 
-    public UpdateProductCommandHandler(IProductMasterDbContext context)
+    public UpdateProductCommandHandler(IProductRepository repository, IAPIExternalServices externalServices)
     {
-        _context = context;
+        _repository = repository;
+        _externalServices = externalServices;
     }
 
     public async Task Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _context.Product
-            .FindAsync(new object[] { request.ProductId }, cancellationToken);
+        Product? prodEntity = await _repository.FindProductByIdAsync(request.ProductId, cancellationToken);
 
-        Guard.Against.NotFound(request.ProductId, entity);
+        Product entity = prodEntity ?? new Product();
 
         entity.Name = request.Name;
-        entity.Done = request.Done;
-
-        /// Validation for Prices
-        //entity.Discount = discount;
-        //entity.FinalPrice = entity.Price - ((discount / 100) * entity.Price);
-
-        await _context.SaveChangesAsync(cancellationToken);
+        entity.StatusId = request.StatusId;
+        entity.Stock = request.Stock;
+        entity.Description = request.Description;
+        entity.Price = Convert.ToDecimal(request.Price);
+        if (prodEntity != null) {
+            var discount = _externalServices.ConvertStringDecimal(_externalServices.GetDiscountExternal(request.ProductId.ToString()));
+            entity.Discount = discount;
+            entity.FinalPrice = entity.Price - ((discount / 100) * entity.Price);
+            await _repository.UpdateProductAsync(entity, cancellationToken);
+        }
+        else
+        {
+            int productId = await _repository.CreateProductAsync(entity, cancellationToken);
+            var discount = _externalServices.ConvertStringDecimal(_externalServices.GetDiscountExternal(productId.ToString()));
+            entity.Discount = discount;
+            entity.FinalPrice = entity.Price - ((discount / 100) * entity.Price);
+        }
     }
 }

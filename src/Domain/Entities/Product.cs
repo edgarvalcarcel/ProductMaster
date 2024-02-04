@@ -1,9 +1,11 @@
-﻿namespace ProductMaster.Domain.Entities;
+﻿using System.Xml.Linq;
+
+namespace ProductMaster.Domain.Entities;
 public class Product: BaseEntity
 {
     public int ProductId { get; set; }
-    public required string Name { get; set; }
-    public int StatusId { get; set; }
+    public string? Name { get; set; }
+    public int StatusId { get; set;  }
     public decimal Stock { get; set; }
     public string? Description { get; set; }
     public decimal Price { get; set; }
@@ -24,4 +26,6 @@ public class Product: BaseEntity
             _done = value;
         }
     }
+
+
 }

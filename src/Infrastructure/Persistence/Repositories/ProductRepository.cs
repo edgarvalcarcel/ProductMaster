@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using ProductMaster.Application.Common.Interfaces;
 using ProductMaster.Domain.Events;
 using ProductMaster.Infrastructure.Data;
@@ -30,6 +31,12 @@ public class ProductRepository : IProductRepository
     public async Task UpdateProductAsync(Product product, CancellationToken cancellationToken)
     {
         _context.Product.Update(product);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task DeleteProductAsync(Product product, CancellationToken cancellationToken)
+    {
+        _context.Product.Remove(product);
         await _context.SaveChangesAsync(cancellationToken);
     }
 }

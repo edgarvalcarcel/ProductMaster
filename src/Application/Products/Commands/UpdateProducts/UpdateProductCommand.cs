@@ -14,7 +14,4 @@ public record UpdateProductCommand : IRequest
     public decimal Stock { get; set; }
     public string? Description { get; set; }
     public decimal? Price { get; set; }
-    public decimal? Discount { get; set; }
-    public decimal FinalPrice { get; set; }
-    public bool Done { get; init; }
 }

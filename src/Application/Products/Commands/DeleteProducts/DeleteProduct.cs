@@ -1,27 +1,24 @@
 ﻿using ProductMaster.Application.Common.Interfaces;
+using ProductMaster.Domain.Entities;
 
 namespace ProductMaster.Application.Products.Commands.DeleteProducts;
 public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
 {
-    private readonly IProductMasterDbContext _context;
+    private readonly IAPIExternalServices _externalServices;
+    private readonly IProductRepository _repository;
 
-    public DeleteProductCommandHandler(IProductMasterDbContext context)
+    public DeleteProductCommandHandler(IProductRepository repository, IAPIExternalServices externalServices)
     {
-        _context = context;
+        _repository = repository;
+        _externalServices = externalServices;
     }
 
     public async Task Handle(DeleteProductCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _context.Product
-            .FindAsync(new object[] { request.Id });
-
-        Guard.Against.NotFound(request.Id, entity);
-
-        _context.Product.Remove(entity);
-
-        //entity.AddDomainEvent(new ProductDeletedEvent(entity));
-
-        await _context.SaveChangesAsync(cancellationToken);
+        Product? prodEntity = await _repository.FindProductByIdAsync(request.Id, cancellationToken);
+        if (prodEntity != null)
+        {
+            await _repository.DeleteProductAsync(prodEntity, cancellationToken); 
+        }
     }
-
 }

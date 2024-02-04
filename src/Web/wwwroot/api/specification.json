@@ -153,18 +153,6 @@
             "type": "number",
             "format": "decimal",
             "nullable": true
-          },
-          "discount": {
-            "type": "number",
-            "format": "decimal",
-            "nullable": true
-          },
-          "finalPrice": {
-            "type": "number",
-            "format": "decimal"
-          },
-          "done": {
-            "type": "boolean"
           }
         }
       }
