@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Compile Remove="Endpoints\Users.cs" />
+    <Compile Remove="Endpoints\WeatherForecasts.cs" />
   </ItemGroup>
 
   <ItemGroup>

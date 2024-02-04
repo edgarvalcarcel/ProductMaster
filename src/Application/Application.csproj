@@ -8,10 +8,13 @@
   <ItemGroup>
     <Compile Remove="TodoItems\**" />
     <Compile Remove="TodoLists\**" />
+    <Compile Remove="WeatherForecasts\**" />
     <EmbeddedResource Remove="TodoItems\**" />
     <EmbeddedResource Remove="TodoLists\**" />
+    <EmbeddedResource Remove="WeatherForecasts\**" />
     <None Remove="TodoItems\**" />
     <None Remove="TodoLists\**" />
+    <None Remove="WeatherForecasts\**" />
   </ItemGroup>
 
   <ItemGroup>
