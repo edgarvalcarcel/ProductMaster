@@ -13,7 +13,7 @@ public class DeleteProductTests : BaseTestFixture
     [Test]
     public async Task ShouldRequireValidProductId()
     {
-        var command = new DeleteProductCommand(99);
+        var command = new DeleteProductCommand(8);
 
         await FluentActions.Invoking(() =>
             SendAsync(command)).Should().ThrowAsync<NotFoundException>();
@@ -24,11 +24,11 @@ public class DeleteProductTests : BaseTestFixture
     {
         var command = new CreateProductCommand
         {
-            Name = "",
-            StatusId = 0,
-            Stock = 10,
-            Description = "",
-            Price = 1
+            Name = "Product for Testing",
+            StatusId = 1,
+            Stock = 100,
+            Description = "Descrption Product for Testing",
+            Price = 156
         };
         var id = await SendAsync(command);
 
