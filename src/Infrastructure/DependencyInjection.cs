@@ -1,15 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using ProductMaster.Application.Common.Interfaces;
 using ProductMaster.Infrastructure.Data;
-using ProductMaster.Infrastructure.Data.Interceptors;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
-using ProductMaster.Infrastructure.Shared.Services;
 using ProductMaster.Infrastructure.Persistence.Repositories;
+using ProductMaster.Infrastructure.Shared.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

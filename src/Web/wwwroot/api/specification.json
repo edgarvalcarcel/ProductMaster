@@ -6,10 +6,28 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/api/Products": {
+    "/api/ProductsEndPoint": {
+      "get": {
+        "tags": [
+          "ProductsEndPoint"
+        ],
+        "operationId": "GetProductsList",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductViewModel"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
-          "Products"
+          "ProductsEndPoint"
         ],
         "operationId": "CreateProduct",
         "requestBody": {
@@ -39,10 +57,40 @@
         }
       }
     },
-    "/api/Products/{id}": {
+    "/api/ProductsEndPoint/{id}": {
+      "get": {
+        "tags": [
+          "ProductsEndPoint"
+        ],
+        "operationId": "GetProductById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductVmDto"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
-          "Products"
+          "ProductsEndPoint"
         ],
         "operationId": "UpdateProduct",
         "parameters": [
@@ -77,7 +125,7 @@
       },
       "delete": {
         "tags": [
-          "Products"
+          "ProductsEndPoint"
         ],
         "operationId": "DeleteProduct",
         "parameters": [
@@ -102,6 +150,104 @@
   },
   "components": {
     "schemas": {
+      "ProductViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productsList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDto"
+            }
+          }
+        }
+      },
+      "ProductDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "discount": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "finalPrice": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "ProductVmDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "discount": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "finalPrice": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
       "CreateProductCommand": {
         "type": "object",
         "additionalProperties": false,

@@ -19,9 +19,9 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.Property(t => t.Stock).HasPrecision(18);
         builder.Property(p => p.Description).HasMaxLength(300);
 
-        builder.Property(t => t.Price).HasPrecision(20, 2).HasColumnType("decimal(20,2)").IsRequired();
-        builder.Property(t => t.Discount).HasPrecision(20, 2).HasColumnType("decimal(20,2)");
-        builder.Property(t => t.FinalPrice).HasColumnType("decimal(20,2)").IsRequired();
+        builder.Property(t => t.Price).HasPrecision(18, 2).HasColumnType("decimal(18,2)").IsRequired();
+        builder.Property(t => t.Discount).HasPrecision(18, 2).HasColumnType("decimal(18,2)");
+        builder.Property(t => t.FinalPrice).HasPrecision(18, 2).HasColumnType("decimal(18,2)").IsRequired();
         //relationships
         //builder.HasOne(p => p.Status).WithOne(s =>s.Product).HasForeignKey<Status>("ProductId").OnDelete(DeleteBehavior.Cascade);
     }
