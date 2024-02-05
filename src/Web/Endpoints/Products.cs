@@ -9,7 +9,7 @@ using ProductMaster.Application.Products.Queries.GetProductsWithPagination;
 
 namespace ProductMaster.Web.Endpoints;
 
-public class ProductsEndPoint : EndpointGroupBase
+public class Products : EndpointGroupBase
 {
     public override void Map(WebApplication app)
     {

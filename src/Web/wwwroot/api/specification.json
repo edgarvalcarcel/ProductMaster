@@ -6,10 +6,10 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/api/ProductsEndPoint": {
+    "/api/Products": {
       "get": {
         "tags": [
-          "ProductsEndPoint"
+          "Products"
         ],
         "operationId": "GetProductsList",
         "responses": {
@@ -27,7 +27,7 @@
       },
       "post": {
         "tags": [
-          "ProductsEndPoint"
+          "Products"
         ],
         "operationId": "CreateProduct",
         "requestBody": {
@@ -57,10 +57,10 @@
         }
       }
     },
-    "/api/ProductsEndPoint/{id}": {
+    "/api/Products/{id}": {
       "get": {
         "tags": [
-          "ProductsEndPoint"
+          "Products"
         ],
         "operationId": "GetProductById",
         "parameters": [
@@ -90,7 +90,7 @@
       },
       "put": {
         "tags": [
-          "ProductsEndPoint"
+          "Products"
         ],
         "operationId": "UpdateProduct",
         "parameters": [
@@ -125,7 +125,7 @@
       },
       "delete": {
         "tags": [
-          "ProductsEndPoint"
+          "Products"
         ],
         "operationId": "DeleteProduct",
         "parameters": [
