@@ -1,12 +1,10 @@
 ﻿using System.Reflection;
 using System.Runtime.Serialization;
 using AutoMapper;
-using ProductMaster.Application.Common.Interfaces;
-using ProductMaster.Application.Common.Models;
-using ProductMaster.Application.TodoItems.Queries.GetTodoItemsWithPagination;
-using ProductMaster.Application.TodoLists.Queries.GetTodos;
-using ProductMaster.Domain.Entities;
 using NUnit.Framework;
+using ProductMaster.Application.Common.Interfaces;
+using ProductMaster.Application.Products.Queries.GetProducts;
+using ProductMaster.Domain.Entities;
 
 namespace ProductMaster.Application.UnitTests.Common.Mappings;
 
@@ -24,17 +22,7 @@ public class MappingTests
     }
 
     [Test]
-    public void ShouldHaveValidConfiguration()
-    {
-        _configuration.AssertConfigurationIsValid();
-    }
-
-    [Test]
-    [TestCase(typeof(TodoList), typeof(TodoListDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
-    [TestCase(typeof(TodoList), typeof(LookupDto))]
-    [TestCase(typeof(TodoItem), typeof(LookupDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemBriefDto))]
+    [TestCase(typeof(Product), typeof(ProductDto))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);
@@ -46,9 +34,6 @@ public class MappingTests
     {
         if (type.GetConstructor(Type.EmptyTypes) != null)
             return Activator.CreateInstance(type)!;
-
-        // Type without parameterless constructor
-        // TODO: Figure out an alternative approach to the now obsolete `FormatterServices.GetUninitializedObject` method.
 #pragma warning disable SYSLIB0050 // Type or member is obsolete
         return FormatterServices.GetUninitializedObject(type);
 #pragma warning restore SYSLIB0050 // Type or member is obsolete

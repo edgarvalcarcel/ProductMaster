@@ -1,4 +1,6 @@
-﻿namespace ProductMaster.Application.FunctionalTests;
+﻿using NUnit.Framework;
+
+namespace ProductMaster.Application.FunctionalTests;
 
 using static Testing;
 

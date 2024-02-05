@@ -1,40 +1,32 @@
-﻿using System.Data.Common;
-using ProductMaster.Application.Common.Interfaces;
-using ProductMaster.Infrastructure.Data;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using ProductMaster.Infrastructure.Data;
 
 namespace ProductMaster.Application.FunctionalTests;
-
-using static Testing;
-
-public class CustomWebApplicationFactory : WebApplicationFactory<Program>
+internal class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
-    private readonly DbConnection _connection;
-
-    public CustomWebApplicationFactory(DbConnection connection)
-    {
-        _connection = connection;
-    }
-
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureTestServices(services =>
+        builder.ConfigureAppConfiguration(configurationBuilder =>
         {
- 
+            var integrationConfig = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables()
+                .Build();
 
+            configurationBuilder.AddConfiguration(integrationConfig);
+        });
+
+        builder.ConfigureServices((builder, services) =>
+        {
             services
-                .RemoveAll<DbContextOptions<ProductMasterDbContext>>()
+                .Remove<DbContextOptions<ProductMasterDbContext>>()
                 .AddDbContext<ProductMasterDbContext>((sp, options) =>
-                {
-                    options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
-                    options.UseSqlServer(_connection);
-                });
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+                        builder => builder.MigrationsAssembly(typeof(ProductMasterDbContext).Assembly.FullName)));
         });
     }
 }
