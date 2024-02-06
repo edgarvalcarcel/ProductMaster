@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using LazyCache;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +32,7 @@ public static class DependencyInjection
 
         services.AddTransient<IAPIExternalServices, APIExternalServices>();
         services.AddTransient<IProductRepository, ProductRepository>();
+        services.AddTransient<IAppCache, CachingService>();
         services.Configure<ExternalServices>(configuration.GetSection("ExternalServices"));
         services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
         services.AddAuthorizationBuilder();
