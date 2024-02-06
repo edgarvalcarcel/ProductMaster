@@ -1,0 +1,102 @@
+2024-02-06 10:11:25.865 -05:00 [WRN] No store type was specified for the decimal property 'Discount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:11:25.904 -05:00 [WRN] No store type was specified for the decimal property 'FinalPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:11:25.904 -05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:11:25.904 -05:00 [WRN] No store type was specified for the decimal property 'Stock' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:11:26.380 -05:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-06 10:11:26.434 -05:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-06 10:11:26.438 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-06 10:11:26.439 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-06 10:11:26.478 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-06 10:11:26.504 -05:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-06 10:11:26.772 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Product] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-06 10:11:26.850 -05:00 [INF] User profile is available. Using 'C:\Users\edgar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-06 10:11:26.918 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-02-06 10:12:12.931 -05:00 [WRN] No store type was specified for the decimal property 'Discount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:12.966 -05:00 [WRN] No store type was specified for the decimal property 'FinalPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:12.966 -05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:12.966 -05:00 [WRN] No store type was specified for the decimal property 'Stock' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:13.374 -05:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-06 10:12:13.416 -05:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-06 10:12:13.419 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-06 10:12:13.420 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-06 10:12:13.456 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-06 10:12:13.479 -05:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-06 10:12:13.682 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Product] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-06 10:12:13.732 -05:00 [INF] User profile is available. Using 'C:\Users\edgar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-06 10:12:13.745 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-02-06 10:12:26.391 -05:00 [WRN] No store type was specified for the decimal property 'Discount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:26.432 -05:00 [WRN] No store type was specified for the decimal property 'FinalPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:26.432 -05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:26.433 -05:00 [WRN] No store type was specified for the decimal property 'Stock' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-06 10:12:27.035 -05:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-06 10:12:27.078 -05:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-06 10:12:27.089 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-06 10:12:27.091 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-06 10:12:27.127 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-06 10:12:27.151 -05:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-06 10:12:27.417 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Product] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-06 10:12:27.553 -05:00 [INF] User profile is available. Using 'C:\Users\edgar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-06 10:12:27.591 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-02-06 10:12:27.813 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-06 10:12:27.815 -05:00 [INF] Hosting environment: Development
+2024-02-06 10:12:27.818 -05:00 [INF] Content root path: C:\Users\edgar\source\repos\ProductMaster\src\Web
+2024-02-06 10:12:27.863 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:44312/ - null null
+2024-02-06 10:12:28.052 -05:00 [INF] Executing endpoint '/'
+2024-02-06 10:12:28.065 -05:00 [INF] Executing RedirectResult, redirecting to /api.
+2024-02-06 10:12:28.066 -05:00 [INF] Executed endpoint '/'
+2024-02-06 10:12:28.091 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:44312/ - 302 null null 232.6101ms
+2024-02-06 10:12:28.105 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:44312/api - null null
+2024-02-06 10:12:28.116 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:44312/api - 302 null null 11.8456ms
+2024-02-06 10:12:28.128 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:44312/api/index.html?url=/api/specification.json - null null
+2024-02-06 10:12:28.241 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:44312/api/index.html?url=/api/specification.json - 200 null text/html; charset=utf-8 113.2096ms
+2024-02-06 10:12:28.291 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-06 10:12:28.307 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 14.754ms
+2024-02-06 10:12:28.375 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:44312/_vs/browserLink - null null
+2024-02-06 10:12:28.433 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.5852ms
+2024-02-06 10:12:50.658 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:44312/api/Products - null null
+2024-02-06 10:12:50.668 -05:00 [INF] Executing endpoint 'HTTP: GET /api/Products/ => GetProductsList'
+2024-02-06 10:12:50.905 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[ProductId], [p].[Name], [p].[StatusId], [p].[Stock], [p].[Description], [p].[Price], [p].[Discount], [p].[FinalPrice]
+FROM [Product] AS [p]
+ORDER BY [p].[ProductId]
+2024-02-06 10:12:50.930 -05:00 [INF] Executed endpoint 'HTTP: GET /api/Products/ => GetProductsList'
+2024-02-06 10:12:50.936 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:44312/api/Products - 200 null application/json; charset=utf-8 278.9072ms

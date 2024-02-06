@@ -1,7 +1,9 @@
 using ProductMaster.Infrastructure.Data;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
+builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebServices();
