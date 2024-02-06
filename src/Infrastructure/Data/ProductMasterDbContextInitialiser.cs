@@ -1,8 +1,14 @@
-﻿using Bogus;
+﻿using System;
+using System.Reflection;
+using Bogus;
+using LazyCache;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using ProductMaster.Domain.Entities;
+using ProductMaster.Domain.Enums;
 
 namespace ProductMaster.Infrastructure.Data;
 
@@ -15,8 +21,8 @@ public static class InitialiserExtensions
         var initialiser = scope.ServiceProvider.GetRequiredService<ProductMasterDbContextInitialiser>();
 
         await initialiser.InitialiseAsync();
-
         await initialiser.SeedAsync();
+        await initialiser.LoadStatusCache();
     }
     public static async Task DatabaseAsync(this WebApplication app)
     {
@@ -81,5 +87,16 @@ public class ProductMasterDbContextInitialiser
             _logger.LogError(ex, "An error occurred while seeding the database.");
             throw;
         }
+    }
+    public Task<Dictionary<int,string>> LoadStatusCache()
+    {
+        IAppCache cache = new CachingService();
+        var StatusDict = Enum.GetValues(typeof(Status))
+               .Cast<Status>()
+               .ToDictionary(t => (int)t, t => t.ToString());
+
+        var cachedResult = cache.GetOrAdd("latest-posts", () => StatusDict, DateTimeOffset.UtcNow.AddMinutes(5));
+         
+        return Task.FromResult(cachedResult);
     }
 }
