@@ -27,14 +27,12 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
 
         var elapsedMilliseconds = _timer.ElapsedMilliseconds;
 
-        if (elapsedMilliseconds > 500)
-        {
+        //if (elapsedMilliseconds > 500){}
             var requestName = typeof(TRequest).Name;
             var userName = string.Empty;
 
-            _logger.LogWarning("ProductMaster Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserName} {@Request}",
+            _logger.LogWarning("ProductMaster Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserName} {@Request}",
                 requestName, elapsedMilliseconds,  userName, request);
-        }
 
         return response;
     }
