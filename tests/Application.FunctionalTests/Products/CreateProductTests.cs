@@ -39,7 +39,7 @@ public class CreateProductTests : BaseTestFixture
             Name = "Product for Testing",
             StatusId = 1,
             Stock = 100,
-            Description = "Descrption Product for Testing",
+            Description = "Description Product for Testing",
             Price = 156
         };
 
