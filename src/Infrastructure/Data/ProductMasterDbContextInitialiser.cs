@@ -36,11 +36,13 @@ public class ProductMasterDbContextInitialiser
 {
     private readonly ILogger<ProductMasterDbContextInitialiser> _logger;
     private readonly ProductMasterDbContext _context;
+    private readonly  IAppCache _cache ;
 
-    public ProductMasterDbContextInitialiser(ILogger<ProductMasterDbContextInitialiser> logger, ProductMasterDbContext context)
+    public ProductMasterDbContextInitialiser(ILogger<ProductMasterDbContextInitialiser> logger, ProductMasterDbContext context, IAppCache cache)
     {
         _logger = logger;
         _context = context;
+        _cache = cache;
     }
 
     public async Task InitialiseAsync()
@@ -90,12 +92,11 @@ public class ProductMasterDbContextInitialiser
     }
     public Task<Dictionary<int,string>> LoadStatusCache()
     {
-        IAppCache cache = new CachingService();
         var StatusDict = Enum.GetValues(typeof(Status))
                .Cast<Status>()
                .ToDictionary(t => (int)t, t => t.ToString());
 
-        var cachedResult = cache.GetOrAdd("latest-posts", () => StatusDict, DateTimeOffset.UtcNow.AddMinutes(5));
+        var cachedResult = _cache.GetOrAdd("status", () => StatusDict, DateTimeOffset.UtcNow.AddMinutes(5));
          
         return Task.FromResult(cachedResult);
     }
