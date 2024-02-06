@@ -16,5 +16,23 @@ To run the tests:
 dotnet test
 ```
 
+## Technologies
+
+The project contains the following technology:
+
+ASP.NET Core 8
+Entity Framework Core 8
+MediatR
+AutoMapper
+FluentValidation
+NUnit, FluentAssertions, Moq & Respawn
+Fluent Assertions
+Lazy Cache
+RestSharp
+Serilog
+Moq
+Nunit
+Bogus 
+
 ## Help
 edgarvalcarcel@hotmail.com
