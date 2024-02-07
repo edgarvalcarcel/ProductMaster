@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using AutoMapper;
 using NUnit.Framework;
 using ProductMaster.Application.Common.Interfaces;
-using ProductMaster.Application.Products.Queries.GetProducts;
+using ProductMaster.Application.Products.Queries.Get;
 using ProductMaster.Domain.Entities;
 
 namespace ProductMaster.Application.UnitTests.Common.Mappings;

@@ -1,7 +1,7 @@
 ﻿using ProductMaster.Application.Common.Interfaces;
 using ProductMaster.Domain.Entities;
 
-namespace ProductMaster.Application.Products.Commands.UpdateProducts;
+namespace ProductMaster.Application.Products.Commands.Update;
 public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
 {
     private readonly IAPIExternalServices _externalServices;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductMaster.Application.Products.Commands.CreateProducts;
+namespace ProductMaster.Application.Products.Commands.Create;
 public record CreateProductCommand : IRequest<int>
 {
     public string? Name { get; init; }

@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 using ProductMaster.Application.Common.Exceptions;
-using ProductMaster.Application.Products.Commands.CreateProducts;
+using ProductMaster.Application.Products.Commands.Create;
 using ProductMaster.Domain.Entities;
 namespace ProductMaster.Application.FunctionalTests.Products;
 using static Testing;

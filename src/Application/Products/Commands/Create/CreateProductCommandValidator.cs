@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductMaster.Application.Products.Commands.UpdateProducts;
-public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
+namespace ProductMaster.Application.Products.Commands.Create;
+public class UpdateProductCommandValidator : AbstractValidator<CreateProductCommand>
 {
     public UpdateProductCommandValidator()
     {

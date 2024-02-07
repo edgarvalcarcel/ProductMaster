@@ -1,7 +1,7 @@
 ﻿using ProductMaster.Application.Common.Interfaces;
 using ProductMaster.Domain.Entities;
 
-namespace ProductMaster.Application.Products.Commands.CreateProducts;
+namespace ProductMaster.Application.Products.Commands.Create;
 public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
 {
     private readonly IAPIExternalServices _externalServices;

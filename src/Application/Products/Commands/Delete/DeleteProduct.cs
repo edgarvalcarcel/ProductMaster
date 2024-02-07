@@ -1,7 +1,7 @@
 ﻿using ProductMaster.Application.Common.Interfaces;
 using ProductMaster.Domain.Entities;
 
-namespace ProductMaster.Application.Products.Commands.DeleteProducts;
+namespace ProductMaster.Application.Products.Commands.Delete;
 public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
 {
     private readonly IAPIExternalServices _externalServices;

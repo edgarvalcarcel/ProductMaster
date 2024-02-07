@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductMaster.Application.Products.Commands.UpdateProducts;
+namespace ProductMaster.Application.Products.Commands.Update;
  
 public record UpdateProductCommand : IRequest
 {

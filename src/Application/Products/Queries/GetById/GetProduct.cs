@@ -1,6 +1,6 @@
 ﻿using ProductMaster.Application.Common.Interfaces;
 
-namespace ProductMaster.Application.Products.Queries.GetProductById;
+namespace ProductMaster.Application.Products.Queries.GetById;
 public record GetProductQuery(int Id) : IRequest<ProductVmDto>;
 
 public class GetProductQueryHandler : IRequestHandler<GetProductQuery, ProductVmDto>

@@ -1,9 +1,9 @@
 ﻿using LazyCache;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ProductMaster.Application.Common.Interfaces;
-using ProductMaster.Application.Products.Queries.GetProducts;
+using ProductMaster.Application.Products.Queries.Get;
 using ProductMaster.Domain.Enums;
-namespace ProductMaster.Application.Products.Queries.GetProductsWithPagination;
+namespace ProductMaster.Application.Products.Queries.Get;
 
 public record GetProductsListQuery : IRequest<ProductViewModel>;
 

@@ -11,7 +11,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "GetProductsList",
+        "operationId": "Get",
         "responses": {
           "200": {
             "description": "",
@@ -29,7 +29,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "CreateProduct",
+        "operationId": "Create",
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -62,7 +62,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "GetProductById",
+        "operationId": "GetById",
         "parameters": [
           {
             "name": "id",
@@ -92,7 +92,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "UpdateProduct",
+        "operationId": "Update",
         "parameters": [
           {
             "name": "id",
@@ -127,7 +127,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "DeleteProduct",
+        "operationId": "Delete",
         "parameters": [
           {
             "name": "id",

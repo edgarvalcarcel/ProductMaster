@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProductMaster.Domain.Entities;
-using ProductMaster.Domain.Enums;
+﻿using ProductMaster.Domain.Entities;
 
-namespace ProductMaster.Application.Products.Queries.GetProducts;
-public class ProductDto
+namespace ProductMaster.Application.Products.Queries.GetById;
+public class ProductVmDto
 {
     public int ProductId { get; set; }
     public string? Name { get; set; }
@@ -19,11 +13,16 @@ public class ProductDto
     public decimal? Discount { get; set; }
     public decimal FinalPrice { get; set; }
 
+    public static implicit operator ProductVmDto?(Product? v)
+    {
+        throw new NotImplementedException();
+    }
+
     private class Mapping : Profile
     {
         public Mapping()
         {
-            CreateMap<Product, ProductDto>();
+            CreateMap<Product, ProductVmDto>();
         }
     }
 }
