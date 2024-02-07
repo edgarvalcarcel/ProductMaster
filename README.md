@@ -1,10 +1,23 @@
 ﻿﻿# ProductMaster Solution for Tekton Labs
-## Run
+## Download & Run
 To run the web application:
 
 ```bash
-cd .\src\Web\
-dotnet watch run
+ Download or clone the repository: ProductMaster,  unzip the file: ProductMaster-master.zip to the folder you want. once unzipped. Proceed to select the ProductMaster.sln file to be opened with Visual Studio 2022
+ 
+Already in Visual Studio, select the project: Web as the main project
+ 
+You can do this by selecting the project: Web and right clicking on it and on the pop-up menu select the option Set as startup project
+As a last step, make sure the execution is established in IIS Express (just for this test) and that the web project is established.
+ 
+
+ 
+Don't forget to edit the files: appsettings.json located in the projects:
+Project Web
+ 
+Project Test: Application.FunctionalTests
+ 
+
 ```
 
 ## Run Test
