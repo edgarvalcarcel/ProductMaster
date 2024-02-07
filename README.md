@@ -5,7 +5,8 @@ To run the web application:
 ```bash
 Download or clone the repository: **ProductMaster,** unzip the file: **ProductMaster-master.zip** to
 the folder you want.once unzipped. Proceed to select the ProductMaster.sln file to be opened with
-Visual Studio 2022
+Visual Studio 2022 
+ ![RackMultipart20240207-1-5ylvis_html_e057d18cc71e2ee8](https://github.com/edgarvalcarcel/ProductMaster/assets/7807698/e48154c1-dc35-4b20-aa6c-53d90dde326d)
 
 Already in Visual Studio, select the project: Web as the main project
 
@@ -82,3 +83,5 @@ to run migrations:
  ```
 ## Help
 edgarvalcarcel@hotmail.com
+
+
