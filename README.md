@@ -93,6 +93,9 @@ To run the tests:
 ```bash
 dotnet test
 ```
+## Documentation File
+ [Test Tekton Labs SoftwareArchitecture.docx](https://github.com/edgarvalcarcel/ProductMaster/files/14187773/Test.Tekton.Labs.SoftwareArchitecture.docx)
 
 ## Help
 edgarvalcarcel@hotmail.com
+
