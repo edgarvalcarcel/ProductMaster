@@ -56,6 +56,11 @@ these are the changes:
     "DefaultConnection": "Data Source=YourPC\\YourInstance;Initial Catalog=ProductMasterDb;User ID=YourUser;Password=YourPassword;MultipleActiveResultSets=True;Connect Timeout=100;Encrypt=False;"
   }
  ```
+```bash
+ You have to create a database first, for instance ProductMasterDb
+  ```
+![ProductMaster-6](https://github.com/edgarvalcarcel/ProductMaster/assets/7807698/08420e99-8f25-44a5-b3ac-eb44fe92b963)
+
 
 ## Database
 The project is configured for SQL server, once downloaded to your local PC, proceed to edit the file: appsettings.json located in the following projects:
@@ -69,7 +74,11 @@ these are the changes:
     "DefaultConnection": "Data Source=YourPC\\YourInstance;Initial Catalog=ProductMasterDb;User ID=YourUser;Password=YourPassword;MultipleActiveResultSets=True;Connect Timeout=100;Encrypt=False;"
   }
  ```
-  
+```bash
+ You have to create a database first, for instance ProductMasterDb
+  ```
+![ProductMaster-6](https://github.com/edgarvalcarcel/ProductMaster/assets/7807698/08420e99-8f25-44a5-b3ac-eb44fe92b963)
+
 When you run the application the database will be automatically created, and be populated (if necessary) and the latest migrations will be applied.
 Running database migrations is easy. Ensure you add the following flags to your command (values assume you are executing from repository root)
  ```
