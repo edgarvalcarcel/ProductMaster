@@ -5,21 +5,27 @@ To run the web application:
 ```bash
 Download or clone the repository: **ProductMaster,** unzip the file: **ProductMaster-master.zip** to
 the folder you want.once unzipped. Proceed to select the ProductMaster.sln file to be opened with
-Visual Studio 2022 
- ![RackMultipart20240207-1-5ylvis_html_e057d18cc71e2ee8](https://github.com/edgarvalcarcel/ProductMaster/assets/7807698/e48154c1-dc35-4b20-aa6c-53d90dde326d)
-
+Visual Studio 2022
+ ```
+ 
+```bash
 Already in Visual Studio, select the project: Web as the main project
 
 You can do this by selecting the project: **Web** and right clicking on it and on the pop-up menu
 select the option **Set as startup project**
+ ```
 
+```bash
 As a last step, make sure the execution is established in IIS Express (just for this test) and that the
  **web** project is established.
+ ```
 
+```bash
 Don't forget to edit the files: appsettings.json located in the projects:
  **Project Web
  **Project Test: Application.FunctionalTests
  ```
+
 these are the changes:
 ```bash
   "ConnectionStrings": {
